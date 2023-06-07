@@ -4,10 +4,10 @@
 #include <time.h>
 #include <windows.h>
 
-#define LEFT_KEY 0x25     // The key to move left, default = 0x25 (left arrow)
-#define RIGHT_KEY 0x27    // The key to move right, default = 0x27 (right arrow)
-#define ROTATE_KEY 0x26   // The key to rotate, default = 0x26 (up arrow)
-#define DOWN_KEY 0x28     // The key to move down, default = 0x28 (down arrow)
+#define LEFT_KEY 0x27     // The key to move left, default = 0x25 (left arrow)
+#define RIGHT_KEY 0x25    // The key to move right, default = 0x27 (right arrow)
+#define ROTATE_KEY 0x28   // The key to rotate, default = 0x26 (up arrow)
+#define DOWN_KEY 0x26     // The key to move down, default = 0x28 (down arrow)
 #define FALL_KEY 0x20     // The key to fall, default = 0x20 (spacebar)
 
 #define FALL_DELAY 500    // The delay between each fall, default = 500
@@ -451,6 +451,10 @@ void logic(Block canvas[CANVAS_HEIGHT][CANVAS_WIDTH], State* state)
 
 int main()
 {
+    system("cls");
+    printf("«öenter¶}©l¹CÀ¸:");
+    char c = getchar();
+    if (c == '\n') return 0;
     srand(time(NULL));
     State state = {
         .x = CANVAS_WIDTH / 2,
@@ -475,7 +479,7 @@ int main()
     }
 
     system("cls");
-    // printf("\e[?25l"); // hide cursor
+    //printf("\e[?25l"); // hide cursor
 
     move(canvas, state.x, state.y, state.rotate, state.x, state.y, state.rotate, state.queue[0]);
 
